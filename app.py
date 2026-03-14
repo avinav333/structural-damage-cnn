@@ -144,8 +144,11 @@ else:
 - Military infrastructure damage assessment
 """)
 
-    st.image(
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Concrete_cracks.jpg/640px-Concrete_cracks.jpg",
-        caption="Example: Concrete surface with visible crack damage",
-        use_column_width=True
-    )
+    st.info("💡 **Tip:** Try uploading a photo of any wall, road, bridge, or concrete floor — even from your phone camera!")
+    st.markdown("""
+**Best images to upload:**
+- 📸 Close-up photo of a **concrete wall** with cracks
+- 🌉 Photo of a **bridge or footpath** surface
+- 🏢 Photo of a **building exterior** with damage
+- 📱 Any photo from your phone of cracked cement/plaster
+""")
