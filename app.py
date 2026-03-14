@@ -25,7 +25,7 @@ st.markdown("""
 **AI-powered crack detection on concrete surfaces from drone imagery.**  
 Upload a concrete surface image to detect structural damage instantly.
 
-> *Project by Abhinava Mondal — B.Tech Construction Engineering, Jadavpur University*
+> *Project by Abhinava Mondal — B.E. Construction Engineering, Jadavpur University*
 """)
 
 st.divider()
