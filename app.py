@@ -116,17 +116,17 @@ if uploaded:
         gray_cv = cv2.cvtColor(img_cv, cv2.COLOR_RGB2GRAY)
         # Canny edge detection to highlight potential crack regions
         edges = cv2.Canny(gray_cv, threshold1=50, threshold2=150)
-        edges_colored = cv2.applyColorMap(edges, cv2.COLORMAP_HOT)
-        overlay = cv2.addWeighted(cv2.cvtColor(img_cv, cv2.COLOR_RGB2BGR), 0.6,
-                                  edges_colored, 0.4, 0)
+        edges_colored = cv2.applyColorMap(edges, cv2.COLORMAP_JET)
+        overlay = cv2.addWeighted(cv2.cvtColor(img_cv, cv2.COLOR_RGB2BGR), 0.5,
+                                  edges_colored, 0.6, 0)
         overlay_rgb = cv2.cvtColor(overlay, cv2.COLOR_BGR2RGB)
-        st.image(overlay_rgb, caption="Edge-highlighted overlay (potential damage zones in red/yellow)", use_column_width=True)
+        st.image(overlay_rgb, caption="Crack edge detection overlay — white/bright lines show detected damage zones", use_column_width=True)
     except ImportError:
         st.info("Install opencv-python for damage localisation overlay.")
 
     st.divider()
     st.caption("Model: Lightweight CNN trained on SDNET2018 dataset | "
-               "Abhinava Mondal, Jadavpur University | Mission Sudarshan Chakra — Atmanirbhar Bharat")
+               "Abhinava Mondal, Jadavpur University")
 
 else:
     # Show sample instructions
