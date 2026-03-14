@@ -116,11 +116,12 @@ if uploaded:
         gray_cv = cv2.cvtColor(img_cv, cv2.COLOR_RGB2GRAY)
         # Canny edge detection to highlight potential crack regions
         edges = cv2.Canny(gray_cv, threshold1=50, threshold2=150)
-        edges_colored = cv2.applyColorMap(edges, cv2.COLORMAP_JET)
-        overlay = cv2.addWeighted(cv2.cvtColor(img_cv, cv2.COLOR_RGB2BGR), 0.5,
-                                  edges_colored, 0.6, 0)
-        overlay_rgb = cv2.cvtColor(overlay, cv2.COLOR_BGR2RGB)
-        st.image(overlay_rgb, caption="Crack edge detection overlay — white/bright lines show detected damage zones", use_column_width=True)
+        # Show original image with white crack lines drawn on top
+        edges_thick = cv2.dilate(edges, np.ones((2,2), np.uint8), iterations=1)
+        overlay_rgb = cv2.cvtColor(img_cv, cv2.COLOR_RGB2BGR)
+        overlay_rgb[edges_thick > 0] = [255, 255, 255]  # white lines on original
+        overlay_rgb = cv2.cvtColor(overlay_rgb, cv2.COLOR_BGR2RGB)
+        st.image(overlay_rgb, caption="Detected crack lines shown in white", use_column_width=True)
     except ImportError:
         st.info("Install opencv-python for damage localisation overlay.")
 
