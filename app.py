@@ -8,7 +8,7 @@ Deploy free:  https://streamlit.io/cloud
 
 import streamlit as st
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image
 import io
 import os
 
